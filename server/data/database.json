@@ -1,0 +1,52 @@
+{
+  "shops": [
+    {
+      "id": "1",
+      "name": "Super Mart",
+      "items": [
+        {
+          "itemId": "101",
+          "name": "Apples",
+          "price": 1.99,
+          "quantity": 100
+        },
+        {
+          "itemId": "102",
+          "name": "Bread",
+          "price": 2.49,
+          "quantity": 50
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Fashion Paradise",
+      "items": [
+        {
+          "itemId": "201",
+          "name": "T-Shirt",
+          "price": 15.99,
+          "quantity": 30
+        },
+        {
+          "itemId": "202",
+          "name": "Jeans",
+          "price": 29.99,
+          "quantity": 20
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "ali@gmail.com",
+      "password": "123456789"
+    },
+    {
+      "id": 2,
+      "email": "vahid@gmail.com",
+      "password": "123456789"
+    }
+  ]
+}
