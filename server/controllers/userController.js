@@ -26,7 +26,7 @@ const login = (req, res) => {
     if (user.password === password) {
       // Password matches - generate a JWT token for authentication
       const token = jwt.sign({ email: user.email }, jwtSecretKey, {
-        expiresIn: "24h",
+        expiresIn: "1h",
       });
       res.json({ token, email: user.email });
     } else {

@@ -7,7 +7,10 @@ const jwtSecretKey = "YourSecretKeyShouldBeLongAndRandom"; // Replace with your 
 // Authentication middleware
 router.use((req, res, next) => {
   // Check authorization header for JWT
-  const token = req.headers.authorization;
+  const token = req.headers.authorization.substring(
+    8,
+    req.headers.authorization.length - 1
+  );
 
   if (token) {
     // Verify JWT token

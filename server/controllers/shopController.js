@@ -31,8 +31,15 @@ const shopController = {
     const database = getDatabase();
     const newShop = {
       id: req.body.id,
-      name: req.body.name,
-      items: [], // Assuming initially the new shop doesn't have any items
+      shopName: req.body.name,
+      items: [
+        {
+          itemId: Math.round(18065).toString(),
+          name: req.body.name,
+          price: req.body.price,
+          quantity: req.body.quantity,
+        },
+      ], // Assuming initially the new shop doesn't have any items
       // Other shop details as per the schema
     };
     database.shops.push(newShop);
@@ -45,12 +52,19 @@ const shopController = {
     const shopIndex = database.shops.findIndex(
       (shop) => shop.id === req.params.id
     );
+
     if (shopIndex !== -1) {
       database.shops[shopIndex] = {
         id: req.params.id,
-        name: req.body.name,
-        items: database.shops[shopIndex].items, // Retaining existing items
-        // Other updated shop details as per the schema
+        shopName: req.body.shopName,
+        items: [
+          {
+            itemId: database.shops[shopIndex].items[0].itemId,
+            name: req.body.name,
+            price: req.body.price,
+            quantity: req.body.quantity,
+          },
+        ],
       };
       saveDatabase(database);
       res.json(database.shops[shopIndex]);

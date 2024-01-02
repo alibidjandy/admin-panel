@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, ReactNode } from "react";
-import { initialState, AuthReducer, State, Action } from "./reducer";
+import { initialState, MainReducer, State, Action } from "./reducer";
 
 interface AuthStateContextProps {
   children: ReactNode;
@@ -11,7 +11,7 @@ export type AuthDispatchContextType = React.Dispatch<Action> | undefined;
 const AuthStateContext = createContext<AuthStateContextType>(undefined);
 const AuthDispatchContext = createContext<AuthDispatchContextType>(undefined);
 
-export function useAuthState(): AuthStateContextType {
+export function useState(): AuthStateContextType {
   const context = useContext(AuthStateContext);
   if (context === undefined) {
     throw new Error("useAuthState must be used within an AuthProvider");
@@ -19,16 +19,16 @@ export function useAuthState(): AuthStateContextType {
   return context;
 }
 
-export function useAuthDispatch(): AuthDispatchContextType {
+export function useDispatch(): AuthDispatchContextType {
   const context = useContext(AuthDispatchContext);
   if (context === undefined) {
-    throw new Error("useAuthDispatch must be used within an AuthProvider");
+    throw new Error("useDispatch must be used within an AuthProvider");
   }
   return context;
 }
 
 export const AuthProvider: React.FC<AuthStateContextProps> = ({ children }) => {
-  const [user, dispatch] = useReducer(AuthReducer, initialState);
+  const [user, dispatch] = useReducer(MainReducer, initialState);
 
   return (
     <AuthStateContext.Provider value={user}>

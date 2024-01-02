@@ -1,4 +1,23 @@
-import { loginUser, logout } from "./actions";
-import { AuthProvider, useAuthDispatch, useAuthState } from "./context";
+import {
+  loginUser,
+  logout,
+  createShop,
+  deleteShop,
+  getAllShops,
+  getShopById,
+  updateShop,
+} from "./actions";
+import { AuthProvider, useDispatch, useState } from "./context";
 
-export { AuthProvider, useAuthState, useAuthDispatch, loginUser, logout };
+export {
+  AuthProvider,
+  useState,
+  useDispatch,
+  loginUser,
+  logout,
+  createShop,
+  deleteShop,
+  getAllShops,
+  getShopById,
+  updateShop,
+};

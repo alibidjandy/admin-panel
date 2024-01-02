@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { loginUser, useAuthDispatch, useAuthState } from "../context";
+import { loginUser, useDispatch, useState } from "../context";
 import { redirect, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -24,8 +24,8 @@ export default function Login() {
     formState: { errors },
   } = useForm<FormData>({ resolver: yupResolver(schema) });
 
-  const dispatch = useAuthDispatch();
-  const authStates = useAuthState();
+  const dispatch = useDispatch();
+  const States = useState();
 
   const submitForm = async ({ email, password }: FormData) => {
     // debugger;
@@ -37,10 +37,10 @@ export default function Login() {
   };
 
   useEffect(() => {
-    if (authStates?.token) {
+    if (States?.token) {
       navigate("/grid");
     }
-  }, [authStates?.token]);
+  }, [States?.token]);
 
   return (
     <form className="mt-8 space-y-6" onSubmit={handleSubmit(submitForm)}>
