@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const fs = require("fs");
 const cors = require("cors");
+const functions = require("firebase-functions");
 
 // Middleware
 app.use(bodyParser.json());
@@ -26,3 +27,5 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+exports.api = functions.https.onRequest(app);
