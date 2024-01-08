@@ -1,5 +1,5 @@
 
-# Hyena
+# Hyena Admin panel
 
 It's a simple project to have a quick access to features like authentication and a crud which is implemented by express.js and react
 
